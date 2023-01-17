@@ -40,5 +40,26 @@ public class NotaFiscal{
      */
     public void setData(Calendar data){this.data = data;}
 
+    public Item getItens(int indice){
+        return this.itens.get(indice);
+    }
+    /**
+     * @return
+     */
+    public double somaTudo(){
+        double total = 0;
+        for(int i=0; i<itens.size(); i++){
+            total = total + itens.get(i).getTotal();
+        }
+        return total;
+    }
+
+    public void addItem(Item item){
+        itens.add(item);
+    }
+    public void removeItem(Item item){
+        itens.remove(item);
+    }
+
 
 }
