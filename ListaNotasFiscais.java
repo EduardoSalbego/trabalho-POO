@@ -39,11 +39,7 @@ public class ListaNotasFiscais implements INotasFiscais {
      * @throws java.lang.Exception Lança exceção quando não existir nota fiscal com o código informado.
      */
     public void removeNotaFiscal(int codigo) throws Exception{
-        for(NotaFiscal nota: notas) {
-            if(nota.getCodigo() == codigo) {
-                notas.remove(nota);
-            }
-        }
+        notas.remove(getNotaFiscal(codigo));     
     }
     
     /**
@@ -68,8 +64,7 @@ public class ListaNotasFiscais implements INotasFiscais {
      * @throws java.lang.Exception Lança exceção quando não existir nota fiscal com o código informado.
      */
     public double getTotal(int codigo) throws Exception{
-        return codigo;
-
+        return getNotaFiscal(codigo).somaTudo();
     }
 
     /**
@@ -79,7 +74,12 @@ public class ListaNotasFiscais implements INotasFiscais {
      * @throws java.lang.Exception Lança exceção quando não existir nota fiscal com o código informado.
      */
     public void addItem(int codigo, Item item) throws Exception{
-
+        for(NotaFiscal nota : notas) {
+            if(nota.getCodigo() == codigo) {
+                nota.addItem(item);
+            }
+        }
+        throw new Exception ("codigo invalido1!!!!");
     }
     
     /**
@@ -90,6 +90,11 @@ public class ListaNotasFiscais implements INotasFiscais {
      * quando o Item informado não existir.
      */
     public void removeItem(int codigo, Item item) throws Exception{
-    
+        for(NotaFiscal nota : notas) {
+            if(nota.getCodigo() == codigo) {
+                nota.removeItem(item);
+            }
+        }
+        throw new Exception ("codigo invalido1!!!!");
     }
 }
