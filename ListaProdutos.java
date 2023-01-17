@@ -38,11 +38,7 @@ public class ListaProdutos implements IProdutos {
      * porque não existe produto cadastrado com o código informado.
      */
     public void removeProduto(int codigo) throws Exception{
-        for(Produto produto: produtos) {
-            if(produto.getCodigo() == codigo) {
-                produtos.remove(produto);
-            }
-        }
+        produtos.remove(getProduto(codigo));
     }
     
     /**
@@ -69,11 +65,7 @@ public class ListaProdutos implements IProdutos {
      * código informado ou quando a nova quantidade é inválida.
      */
     public void updateQuantidade(int codigo, double nova) throws Exception{
-        for(Produto produto : produtos) {
-            if(produto.getCodigo() == codigo) {
-                produto.setQuant(nova);
-            }
-        }
+        getProduto(codigo).setQuant(nova);
     }
 	
     /**
@@ -84,11 +76,7 @@ public class ListaProdutos implements IProdutos {
      * código informado ou quando o novo preço é inválido.
      */
     public void updatePreco(int codigo, double novo) throws Exception{
-        for(Produto produto : produtos) {
-            if(produto.getCodigo() == codigo) {
-                produto.setPreco(novo);
-            }
-        }
+        getProduto(codigo).setPreco(novo);
     }
     
     /**
@@ -99,11 +87,7 @@ public class ListaProdutos implements IProdutos {
      * código informado ou quando a quantidade é inválida.
      */
     public void addQuantidade(int codigo, double quantidade) throws Exception{
-        for(Produto produto : produtos) {
-            if(produto.getCodigo() == codigo) {
-                produto.setPreco((produto.getQuant()+quantidade));
-            }
-        }
+        getProduto(codigo).addQuant(quantidade);
     }
 
     /**
@@ -114,11 +98,7 @@ public class ListaProdutos implements IProdutos {
      * código informado ou quando quantidade informada é inválida.
      */
     public void subQuantidade(int codigo, double quantidade) throws Exception{
-        for(Produto produto : produtos) {
-            if(produto.getCodigo() == codigo) {
-                produto.setPreco((produto.getQuant()-quantidade));
-            }
-        }
+        getProduto(codigo).removeQuant(quantidade);
     }
 
 }
