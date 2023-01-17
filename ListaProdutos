@@ -1,4 +1,4 @@
-package listas;
+import java.util.ArrayList;
 
 /**
  * A classe ListaNotaFiscais representa uma lista de notas fiscais e suas manipulações.
@@ -27,7 +27,7 @@ public class ListaProdutos implements IProdutos {
      * @param p Produto
      * @throws java.lang.Exception Lança exceção quando o produto não pode ser adicionado.
      */
-    public abstract void addProduto(Produto p) throws Exception{
+    public void addProduto(Produto p) throws Exception{
         produtos.add(p);
     }
     
@@ -37,7 +37,7 @@ public class ListaProdutos implements IProdutos {
      * @throws java.lang.Exception Lança exceção quando o produto não pode ser removido, por exemplo, 
      * porque não existe produto cadastrado com o código informado.
      */
-    public abstract void removeProduto(int codigo) throws Exception{
+    public void removeProduto(int codigo) throws Exception{
         for(Produto produto: produtos) {
             if(produto.getCodigo() == codigo) {
                 produtos.remove(produto);
@@ -52,12 +52,13 @@ public class ListaProdutos implements IProdutos {
      * @throws java.lang.Exception Lança exceção quando não existe produto 
      * com o código informado.
      */
-    public abstract Produto getProduto(int codigo) throws Exception{
+    public Produto getProduto(int codigo) throws Exception{
         for(Produto produto : produtos) {
             if(produto.getCodigo() == codigo) {
                 return produto;
             }
         }
+        return null;
     }
     
     /**
@@ -67,7 +68,7 @@ public class ListaProdutos implements IProdutos {
      * @throws java.lang.Exception Lança exceção quando não existe produto com o 
      * código informado ou quando a nova quantidade é inválida.
      */
-    public abstract void updateQuantidade(int codigo, double nova) throws Exception{
+    public void updateQuantidade(int codigo, double nova) throws Exception{
         for(Produto produto : produtos) {
             if(produto.getCodigo() == codigo) {
                 produto.setQuant(nova);
@@ -82,10 +83,10 @@ public class ListaProdutos implements IProdutos {
      * @throws java.lang.Exception Lança exceção quando não existe produto com o 
      * código informado ou quando o novo preço é inválido.
      */
-    public abstract void updatePreco(int codigo, double novo) throws Exception{
+    public void updatePreco(int codigo, double novo) throws Exception{
         for(Produto produto : produtos) {
             if(produto.getCodigo() == codigo) {
-                produto.setPreco(preco);
+                produto.setPreco(novo);
             }
         }
     }
@@ -97,7 +98,7 @@ public class ListaProdutos implements IProdutos {
      * @throws java.lang.Exception Lança exceção quando não existe produto com o 
      * código informado ou quando a quantidade é inválida.
      */
-    public abstract void addQuantidade(int codigo, double quantidade) throws Exception{
+    public void addQuantidade(int codigo, double quantidade) throws Exception{
         for(Produto produto : produtos) {
             if(produto.getCodigo() == codigo) {
                 produto.setPreco((produto.getQuant()+quantidade));
@@ -112,7 +113,7 @@ public class ListaProdutos implements IProdutos {
      * @throws java.lang.Exception Lança exceção quando não existe produto com o 
      * código informado ou quando quantidade informada é inválida.
      */
-    public abstract void subQuantidade(int codigo, double quantidade) throws Exception{
+    public void subQuantidade(int codigo, double quantidade) throws Exception{
         for(Produto produto : produtos) {
             if(produto.getCodigo() == codigo) {
                 produto.setPreco((produto.getQuant()-quantidade));
