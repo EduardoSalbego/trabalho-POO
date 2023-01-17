@@ -1,4 +1,4 @@
-# trabalho-POO
+# trabalho-POO (Confeitaria Vegana)
 
 ## **ENUNCIADO:**
 
