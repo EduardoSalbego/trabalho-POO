@@ -83,4 +83,12 @@ public abstract class Produto{
         return "Código: "+codigo+" | Produto: "+nome+
         " | Descrição: "+descricao+" | Preço: "+preco;
     }
+
+    public double addQuant(double valor){
+        return getQuant() + valor;
+    }
+
+    public double removeQuant(double valor){
+        return getQuant() - valor;
+    }
 }
