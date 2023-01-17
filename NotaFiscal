@@ -1,4 +1,5 @@
-package classes;
+import java.util.ArrayList;
+import java.util.Calendar;
 
 /**
  * A classe Produto representa o produto global que é extendido por outras categorias
@@ -10,15 +11,15 @@ public class NotaFiscal{
 
     private static int codigoNotaFiscal = 1;
     private int codigo;
-    private data = Calendar.getInstance();
-    private ArrayList<Produto> produtos;
+    private Calendar data = Calendar.getInstance();
+    private ArrayList<Item> itens;
 
     /**
      * Construtor da classe NotaFiscal
      * @param data Calendar data da emissão da nota
      */
     public NotaFiscal(Calendar data){
-        produtos = new ArrayList<Produto>();
+        itens = new ArrayList<Item>();
         this.data = data;
         codigo = codigoNotaFiscal++;
     }
