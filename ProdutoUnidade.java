@@ -24,5 +24,15 @@ public class ProdutoUnidade extends Produto {
             throw new Exception ("o valor nao e inteiro");
         }
     }
+
+    //verificar se n é negativo ou outracoisa invalida
+    //fazer igual setQuant
+    public double addQuant(double valor){
+        return getQuant() + valor;
+    }
+
+    public double removeQuant(double valor){
+        return getQuant() - valor;
+    }
     
 }
