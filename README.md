@@ -1,6 +1,7 @@
 # trabalho-POO
 
-##*ENUNCIADO:*
+##**ENUNCIADO:**
+
 Propõem-se o desenvolvimento de um sistema destinado ao gerenciamento de estoque de
 minimercados, fruteiras e padarias. O software desenvolvido deverá estar de acordo com os
 seguintes requisitos e especificações.
