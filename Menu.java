@@ -1,7 +1,4 @@
 public class Menu {
-    
-}
-public class Menu {
 
     private ListaNotasFiscais lnf;
     private ListaProdutos lp;
