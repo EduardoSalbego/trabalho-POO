@@ -48,13 +48,13 @@ public class ListaProdutos implements IProdutos {
      * @throws java.lang.Exception Lança exceção quando não existe produto 
      * com o código informado.
      */
-    public Produto getProduto(int codigo){
+    public Produto getProduto(int codigo) throws Exception{
         for(Produto produto : produtos) {
             if(produto.getCodigo() == codigo) {
                 return produto;
             }
         }
-        return null;
+        throw new Exception("Produto não cadastrado!");
     }
     
     /**

@@ -42,10 +42,10 @@ public class MenuProdutos {
                 Verificar();
             break;
             case 3:
-                //Alterar(); 
+                Alterar(); 
             break;
             case 4:
-                //Excluir(); 
+                Excluir(); 
             break;
             case 5:
             break;
@@ -101,8 +101,126 @@ public class MenuProdutos {
             lp.getProduto(cod);
             System.out.println("Produto encontrado: ");
             System.out.println(lp.getProduto(cod).toString());
-        } catch (IllegalArgumentException e) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
+
+    public void Alterar(){
+        boolean ok = false;
+        int cod = 0;
+        do {
+            System.out.println("");
+            System.out.print("Informe o código do produto: ");
+            try {
+                cod = entrada.nextInt();
+                ok = true;
+            } catch (InputMismatchException e) {
+                ok = false; 
+                System.out.println("Valor inválido!");
+            } finally {
+                entrada.nextLine();
+            }
+        } while (ok == false);
+
+        try{
+            lp.getProduto(cod);
+            System.out.println("Produto encontrado!");
+            System.out.println(lp.getProduto(cod).toString());
+            do{
+                System.out.println("");
+                System.out.println("1 - Nome");
+                System.out.println("2 - Descrição");
+                System.out.println("3 - Preço");
+                System.out.println("4 - Quantidade em estoque");
+                System.out.println("");
+                System.out.print("Qual dado você gostaria de alterar/cadastrar? ");
+                try{
+                    op2 = entrada.nextInt();
+                } catch (InputMismatchException e){
+                } finally {
+                    entrada.nextLine();
+                }
+                switch(op2){
+                    case 1:
+                        System.out.println("Digite o novo nome: ");
+                        String nome = entrada.nextLine();
+                        lp.getProduto(cod).setNome(nome);
+                        System.out.println("Nome alterado com sucesso.");
+                    break;
+                    case 2:
+                        System.out.println("Digite a nova descrição: ");
+                        String desc = entrada.nextLine();
+                        lp.getProduto(cod).setDescricao(desc);
+                        System.out.println("Descrição alterada com sucesso.");
+                    break;
+                    case 3:
+                        boolean ok2;
+                        do{
+                            System.out.println("");
+                            System.out.print("Digite o novo preço: ");
+                            double preco = 0;
+                            try {
+                                preco = entrada.nextInt();
+                                lp.getProduto(cod).setPreco(preco);
+                                System.out.println("Preço alterado com sucesso.");
+                                ok2 = true;
+                            } catch (InputMismatchException e) {
+                                System.out.println("Número inválido!");
+                                ok2 = false;
+                            } finally {
+                                entrada.nextLine();
+                            }
+                        } while(ok2 == false);
+                    break;
+                    case 4:
+                        boolean ok3;
+                        do{
+                            System.out.println("");
+                            System.out.print("Digite a nova quantidade em estoque: ");
+                            int quant = 0;
+                            try {
+                                quant = entrada.nextInt();
+                                lp.getProduto(cod).setQuant(quant);;
+                                System.out.println("Quantidade alterada com sucesso.");
+                                ok3 = true;
+                            } catch (InputMismatchException e) {
+                                System.out.println("Número inválido!");
+                                ok3 = false;
+                            } finally {
+                                entrada.nextLine();
+                            }
+                        } while(ok3 == false);
+                    break;
+                }
+            }while((op2!=1)&&(op2!=2)&&(op2!=3)&&(op2!=4));
+        }catch(Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void Excluir(){
+        boolean ok;
+        int cod = 0;
+        do{
+            System.out.println("");
+            System.out.print("Informe o Codigo do produto: ");
+            try{
+                cod = entrada.nextInt();
+                ok = true;
+            } catch (InputMismatchException e) {
+                ok = false;
+                System.out.println("Codigo inválido!");
+            } finally { 
+                entrada.nextLine();
+            }
+        } while (ok == false);
+        try {
+            lp.getProduto(cod);
+            lp.removeProduto(cod);
+            System.out.println("Produto excluído com sucesso.");
+        } catch(Exception e) {  
+            System.out.println(e.getMessage());
+        }
+      }
 }

@@ -61,5 +61,8 @@ public class NotaFiscal{
         itens.remove(item);
     }
 
-
+    public String toString(){
+        return "Código: "+codigo+" | Data: "+data+
+        " | Itens: "+itens+" | Valor Total: "+somaTudo();
+    }
 }

@@ -62,6 +62,7 @@ public class Produto{
     /** 
      * Editar quantidade do produto no estoque
      * @param quant int quantidade do produto
+     * @throws Exception
      */
     public void setQuant(double quant) throws Exception {this.quant = quant;}
 
