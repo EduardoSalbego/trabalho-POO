@@ -4,7 +4,7 @@
  * @since jan 2023
  * @version 1.0
  */
-public abstract class Produto{
+public class Produto{
 
     private static int codigoProduto = 1;
     private int codigo;
@@ -81,7 +81,7 @@ public abstract class Produto{
      */
     public String toString(){
         return "Código: "+codigo+" | Produto: "+nome+
-        " | Descrição: "+descricao+" | Preço: "+preco;
+        " | Descrição: "+descricao+" | Preço: "+preco+" | Quantidade em estoque: " + quant;
     }
 
     public double addQuant(double valor){

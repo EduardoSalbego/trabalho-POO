@@ -27,7 +27,7 @@ public class ListaProdutos implements IProdutos {
      * @param p Produto
      * @throws java.lang.Exception Lança exceção quando o produto não pode ser adicionado.
      */
-    public void addProduto(Produto p) throws Exception{
+    public void addProduto(Produto p){
         produtos.add(p);
     }
     
@@ -48,7 +48,7 @@ public class ListaProdutos implements IProdutos {
      * @throws java.lang.Exception Lança exceção quando não existe produto 
      * com o código informado.
      */
-    public Produto getProduto(int codigo) throws Exception{
+    public Produto getProduto(int codigo){
         for(Produto produto : produtos) {
             if(produto.getCodigo() == codigo) {
                 return produto;
