@@ -15,12 +15,13 @@ public class NotaFiscal{
     private ArrayList<Item> itens;
 
     /**
-     * Construtor da classe NotaFiscal
+     * Construtor da classe NotaFiscal  
      * @param data Calendar data da emissão da nota
      */
-    public NotaFiscal(Calendar data){
+    //colocar data depois bianca
+    public NotaFiscal(){
         itens = new ArrayList<Item>();
-        this.data = data;
+        //this.data = data;
         codigo = codigoNotaFiscal++;
     }
 
@@ -40,7 +41,7 @@ public class NotaFiscal{
      */
     public void setData(Calendar data){this.data = data;}
 
-    public Item getItens(int indice){
+    public Item getItem(int indice){
         return this.itens.get(indice);
     }
     /**

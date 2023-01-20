@@ -10,12 +10,14 @@ public class Menu {
     private int op;
     private MenuProdutos mp;
     private MenuNotasFiscais mnf;
+    private MenuCompras mc;
 
     public Menu(ListaNotasFiscais lnf, ListaProdutos lp){
         this.lnf = lnf;
         this.lp = lp;
         mp = new MenuProdutos(lp);
         mnf = new MenuNotasFiscais(lnf);
+        mc = new MenuCompras(lp, lnf);
     }
 
     public void show() {
@@ -23,7 +25,7 @@ public class Menu {
             System.out.println("-------------------------------");
             System.out.println("MENU PRINCIPAL");
             System.out.println("1 - Menu Produto");
-            System.out.println("2 - Menu Notas Fiscais");
+            System.out.println("2 - Menu Compras");
             System.out.println("3 - Encerrar programa");
             System.out.println("-------------------------------");
             System.out.println("Qual lista você deseja acessar? ");
@@ -39,7 +41,7 @@ public class Menu {
                 mp.show();
                 break;
               case 2:
-                mnf.show();
+                mc.show();
                 break;
               case 3:
                 break;

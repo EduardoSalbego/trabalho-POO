@@ -178,9 +178,9 @@ public class MenuProdutos {
                         do{
                             System.out.println("");
                             System.out.print("Digite a nova quantidade em estoque: ");
-                            int quant = 0;
+                            double quant = 0;
                             try {
-                                quant = entrada.nextInt();
+                                quant = entrada.nextDouble();
                                 lp.getProduto(cod).setQuant(quant);;
                                 System.out.println("Quantidade alterada com sucesso.");
                                 ok3 = true;
