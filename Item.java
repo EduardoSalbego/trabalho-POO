@@ -15,8 +15,8 @@ public class Item {
     }
 
     public double getQuantidade(){return quantidade;}
-    public String getProduto(){return produto.getNome();}
+    public Produto getProduto(){return produto;}
     public String toString(){
-        return "Produto : "+getProduto()+" | Quantidade: "+quantidade+" | Valor: "+getTotal();
+        return "Produto : "+getProduto().getNome()+" | Quantidade: "+quantidade+" | Valor: "+getTotal()+"/n ";
     }
 }

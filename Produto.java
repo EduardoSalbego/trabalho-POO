@@ -19,10 +19,11 @@ public class Produto{
      * @param descricao String descrição do produto
      * @param preco double preço do produto 
      */
-    public Produto(String nome, String descricao, double preco){
+    public Produto(String nome, String descricao, double preco, double quant){
         this.nome = nome;
         this.descricao = descricao;
         this.preco = preco;
+        this.quant = quant;
         this.codigo = codigoProduto++;
     }
 

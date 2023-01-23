@@ -64,10 +64,12 @@ public class MenuProdutos {
         String descricao = entrada.nextLine();
         do{
             try{
-                System.out.print("Insira o precço do produto: ");
+                System.out.print("Insira o preço do produto: ");
                 double preco = entrada.nextDouble();
+                System.out.print("Digite a quantidade em estoque: ");
+                double quant = entrada.nextDouble();
                 ok = true;
-                Produto cadastro = new Produto(nome, descricao, preco);
+                Produto cadastro = new Produto(nome, descricao, preco, quant);
                 lp.addProduto(cadastro);
                 System.out.println("Produto cadastrado.");
                 System.out.println(cadastro.toString());
