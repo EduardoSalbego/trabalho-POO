@@ -203,13 +203,20 @@ public class MenuProdutos {
 
     public void Excluir(){
         boolean ok;
-        int cod = 0;
+        int cod;
         do{
-            System.out.println("");
-            System.out.print("Informe o Codigo do produto: ");
             try{
+            System.out.print("Informe o Codigo do produto: ");
                 cod = entrada.nextInt();
-                ok = true;
+                try {
+                    lp.getProduto(cod);
+                    lp.removeProduto(cod);
+                    System.out.println("Produto excluído com sucesso.");
+                    ok = true;
+                } catch(Exception e) {  
+                    System.out.println(e.getMessage());
+                    ok = false;
+                }
             } catch (InputMismatchException e) {
                 ok = false;
                 System.out.println("Codigo inválido!");
@@ -217,12 +224,5 @@ public class MenuProdutos {
                 entrada.nextLine();
             }
         } while (ok == false);
-        try {
-            lp.getProduto(cod);
-            lp.removeProduto(cod);
-            System.out.println("Produto excluído com sucesso.");
-        } catch(Exception e) {  
-            System.out.println(e.getMessage());
-        }
       }
 }

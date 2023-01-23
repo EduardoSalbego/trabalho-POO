@@ -54,7 +54,7 @@ public class ListaNotasFiscais implements INotasFiscais {
                 return nota;
             }
         }
-        return null;
+        throw new Exception("Nota Fiscal não cadastrada.");
     }
     
 	/**
@@ -96,5 +96,9 @@ public class ListaNotasFiscais implements INotasFiscais {
             }
         }
         throw new Exception ("codigo invalido1!!!!");
+    }
+
+    public int size(){
+        return notas.size();
     }
 }

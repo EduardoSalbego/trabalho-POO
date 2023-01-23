@@ -54,7 +54,7 @@ public class ListaProdutos implements IProdutos {
                 return produto;
             }
         }
-        throw new Exception("Produto não cadastrado!");
+        throw new Exception("Produto não cadastrado.");
     }
     
     /**
