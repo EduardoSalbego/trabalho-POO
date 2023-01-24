@@ -79,7 +79,7 @@ public class ListaNotasFiscais implements INotasFiscais {
                 nota.addItem(item);
             }
         }
-        throw new Exception ("codigo invalido1!!!!");
+        throw new Exception ("Código inválido!");
     }
     
     /**
@@ -95,10 +95,14 @@ public class ListaNotasFiscais implements INotasFiscais {
                 nota.removeItem(item);
             }
         }
-        throw new Exception ("codigo invalido1!!!!");
+        throw new Exception ("Código inválido!");
     }
 
-    public int size(){
-        return notas.size();
+    public String toString(){
+        String dados = "";
+        for(int i = 0; i<notas.size(); i++){
+            dados += notas.get(i).toString() + " \n";
+        }
+        return dados;
     }
 }

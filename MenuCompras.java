@@ -6,7 +6,6 @@ public class MenuCompras {
     
     Scanner entrada = new Scanner(System.in);
 
-    private static int aux = 0;
     private int op1; 
     private ListaProdutos lp;
     private ListaNotasFiscais lnf;
@@ -80,7 +79,6 @@ public class MenuCompras {
         try{
             Item item = new Item(lp.getProduto(codigoProduto), quant);
             nf.addItem(item);
-            aux++;
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
@@ -127,7 +125,7 @@ public class MenuCompras {
                 System.out.print("Qual o código do produto que deseja remover? ");
                 cod = entrada.nextInt();
                 try{
-                    nf.getItem();
+                    nf.getItem(cod);
                     ok = true;
                     System.out.print("Produto removido com êxito.");
                 }catch(Exception e){
@@ -144,24 +142,18 @@ public class MenuCompras {
     }
 
     public void Mostrar(){
-        for(int i = 0; i<aux; i++){
-            System.out.print(nf.getItem(i).toString());
-            System.out.print("");
-        }
+        nf.toStringItens();
     }
 
     public void Finalizar(){
-        for(int i = 0; i<aux; i++){
-            nf.addItem(nf.getItem(i));
-            try {
-                lp.subQuantidade(nf.getItem(i).getProduto().getCodigo(), nf.getItem(i).getQuantidade());
-            } catch (Exception e) {
-                System.out.print("Não há produtos suficientes em estoque.");
-            }
+        try{
+            nf.removeEstoque();
+            System.out.println("Compra finalizada!"); 
+            System.out.println("Nota Fiscal da compra criada:");
+            System.out.println(nf.toString());
+        } catch(Exception e){
+            System.out.print("Erro!");
         }
-        System.out.println("Compra finalizada!"); 
-        System.out.println("Nota Fiscal da compra criada:");
-        System.out.println(nf.toString());
 
     }
 }

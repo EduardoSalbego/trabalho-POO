@@ -5,7 +5,7 @@ public class MenuProdutos {
     
     Scanner entrada = new Scanner(System.in);
 
-    ListaProdutos lp;
+    private ListaProdutos lp;
     private int op1;
     private int op2;
 

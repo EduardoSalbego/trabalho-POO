@@ -65,14 +65,7 @@ public class MenuNotasFiscais {
     }
 
     public void ExibirTodas(){
-        for(int i = 0; i<lnf.size(); i++){
-            try {
-                System.out.print("");
-                System.out.print(lnf.getNotaFiscal(i).toString());
-            } catch (Exception e) {
-                System.out.print("-Fim da lista-");
-            }
-        }
+        lnf.toString();
     }
 
     public void Excluir(){

@@ -4,7 +4,6 @@ public class ProdutoUnidade extends Produto {
     
     public ProdutoUnidade(String nome, String descricao, double preco) {
         super(nome, descricao, preco);
-        //TODO Auto-generated constructor stub
     }
 
     /** 

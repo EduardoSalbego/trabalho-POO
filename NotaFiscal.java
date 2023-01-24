@@ -11,7 +11,8 @@ public class NotaFiscal{
 
     private static int codigoNotaFiscal = 1;
     private int codigo;
-    private Calendar data = Calendar.getInstance();
+    private ListaProdutos lp;
+    private Calendar data;
     private ArrayList<Item> itens;
 
     /**
@@ -21,7 +22,7 @@ public class NotaFiscal{
     //colocar data depois bianca
     public NotaFiscal(){
         itens = new ArrayList<Item>();
-        //this.data = data;
+        data = Calendar.getInstance();
         codigo = codigoNotaFiscal++;
     }
 
@@ -41,9 +42,15 @@ public class NotaFiscal{
      */
     public void setData(Calendar data){this.data = data;}
 
-    public Item getItem(int indice){
-        return this.itens.get(indice);
+    public Item getItem(int cod) throws Exception{
+        for(int i=0; i<itens.size(); i++){
+            if(this.itens.get(i).getProduto().getCodigo() == cod){
+                return itens.get(i);
+            }
+        }
+        throw new Exception("Item não encontrado.");
     }
+    
     /**
      * @return
      */
@@ -55,6 +62,14 @@ public class NotaFiscal{
         return total;
     }
 
+    public void removeEstoque() throws Exception{
+        for(int i = 0; i<itens.size(); i++){
+            Item j = itens.get(i);
+            lp.subQuantidade(j.getProduto().getCodigo(), j.getQuantidade());
+        }
+    }
+
+
     public void addItem(Item item){
         itens.add(item);
     }
@@ -62,8 +77,16 @@ public class NotaFiscal{
         itens.remove(item);
     }
 
+    public String toStringItens(){
+        String dados = "";
+        for(int i=0; i<itens.size(); i++){
+            dados += itens.get(i).toString() + " \n";
+        }
+        return dados;
+    }
+
     public String toString(){
         return "Código: "+codigo+" | Data: "+data+
-        " | Itens: "+itens+" | Valor Total: "+somaTudo();
+        " | Itens: "+toStringItens()+" | Valor Total: "+somaTudo();
     }
 }

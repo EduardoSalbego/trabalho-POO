@@ -14,6 +14,7 @@ public class Item {
         return preco*quantidade;
     }
 
+    public void setQuantidade(double quantidade){this.quantidade = quantidade;}
     public double getQuantidade(){return quantidade;}
     public Produto getProduto(){return produto;}
     public String toString(){
