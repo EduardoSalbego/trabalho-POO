@@ -3,8 +3,11 @@
 Integrantes:
 
 Bianca Maia Ribeiro (2210100403)
+
 Eduardo Stocker Salbego(2210100251)
+
 Gian Esteves Oliveira (2210100408)
+
 Maria Luiza Ribeiro Rocha(2210100507)
 
 ## **ENUNCIADO:**
