@@ -5,7 +5,7 @@
 public interface INotasFiscais {
             
     /**
-     * Adiciona uma nota fiscal. socorro
+     * Adiciona uma nota fiscal. 
      * @param nf Nota fiscal a ser adicionada.
      * @throws java.lang.Exception Lança exceção quando a nota fiscal não pode ser adicionada.
      */
